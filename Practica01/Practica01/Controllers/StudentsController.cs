@@ -14,6 +14,45 @@ namespace Practica01.Controllers
             Estudiante = estudiante;
         }
 
+        public IActionResult Delete(int id) {
+            Estudiantes es = new Estudiantes();
+            es.Id = id;
+            Estudiante.DeleteStudents(es);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Load(int id) {
+            Estudiantes es = new Estudiantes();
+            es.Id=id;
+           var listarestudiante= Estudiante.LoadInformation(es);
+
+            return View(listarestudiante);
+        }
+
+        public IActionResult actu(Estudiantes es) {
+
+            Estudiante.UpdateStudents(es);
+            return RedirectToAction("Index");
+
+        }
+
+
+        public IActionResult Guardar() { 
+
+            
+        
+            return View();
+        }
+
+        public IActionResult Save(Estudiantes es) {
+
+            Estudiante.AddStudents(es);
+            return RedirectToAction("Index");
+
+        }
+
+       
         public IActionResult Index()
         {
             //Estudiantes  es = new Estudiantes();
@@ -21,8 +60,10 @@ namespace Practica01.Controllers
             //es.Name = "Marlon";
             //es.LastName = "Martinez";
             ////Estudiante.UpdateStudents(es);//
-            //Estudiante.GetAll();
-            return View();
+            //  Estudiante.GetAll();
+            var listar = Estudiante.GetAll();
+            //ViewBag.listar= Estudiante.GetAll();
+            return View(listar);
         }
         [HttpPost]
         public IActionResult Insertardata(Estudiantes es)  { 

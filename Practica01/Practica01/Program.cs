@@ -12,7 +12,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
-options.UseSqlServer("Server=.;Database=PROGRAAPLICADA; TrustServerCertificate=true; Trusted_Connection=true; Connection Timeout= 30; Integrated Security=true; Persist Security Info= false; Encrypt= true; MultipleActiveResultSets=true;")
+options.UseSqlServer("Server=DESKTOP-EM5MIL8;Database=PROGRAAPLICADA; TrustServerCertificate=true; Trusted_Connection=true; Connection Timeout= 30; Integrated Security=true; Persist Security Info= false; Encrypt= true; MultipleActiveResultSets=true;")
 
 );
 //Inyeccion de la dependencia
